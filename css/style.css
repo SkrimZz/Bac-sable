@@ -1,0 +1,76 @@
+/* Ajustement de la valeur par defaut du REM face au px pour des calcul super simple */
+html{
+    font-size: 62.5%;
+    /* desormais avec la ligne ci-dessus 1 REM = 10 px au lieu de 16. */
+}
+
+body{
+    font-size: 1.6rem;
+    /* Taille par defaut pour eviter d'avoir tous les elements avec une taille definie à 10px */
+}
+
+main{
+    background-color: yellow;
+    /* Exemple de l'utilisation de l'unité VH */
+    min-height: 100vh;
+}
+
+h1{
+    font-size: 4.5rem;
+}
+
+/* Test des flexbox */
+.container{
+    display: flex;
+    flex-wrap: wrap; /*possibilité davoir plusieurs lignes*/
+    background-color: rgb(234, 67, 53);
+    justify-content: space-between;
+}
+
+.item{
+    flex-basis: 20%;
+    background-color: #4286f4;
+}
+
+/* Affichage 2 element par ligne sur tablette */
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .item{
+        flex-basis: 40%;
+    }
+}
+
+/* Affichage en colonne sur mobile */
+@media screen and (max-width: 767px) {
+    .container{
+        flex-direction: column;
+    }
+    .item{
+        flex-basis: 100%;
+    }
+    
+}
+/* Test de positionnement */
+
+figcaption{
+    /* Comment doit se positionner l'element ? */
+    position: absolute;
+    /* Ou doit se positionner l'element ? */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:rgb(234, 67, 53) ;
+    color: white;
+    border: 0.1rem black solid;
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+figure{
+    /* on positionne l'element et donc la legende va se positionner par rapport a ce conteneur */
+    position: relative;
+}
+figure img{
+    /* Images responsives : l'image fera toujours 100% de la largeur de son conteneur */
+    width: 100%;
+}
+

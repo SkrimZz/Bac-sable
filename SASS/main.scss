@@ -1,0 +1,63 @@
+//Import des fichier partiel (EN HAUT DU FICHIER)
+@use"variable" as v ;
+@use"mixin" as m ;
+
+h1 {
+    color: v.$color-primary;
+    font-size: 4rem;
+}
+
+//exemple syntaxe imbriquée
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    //Imbrication d'une media query
+    @media screen and (max-width: v.$md-breakpoint) {
+        flex-direction: column;
+    }
+
+    .item {
+        flex-basis: 20%;
+        @media screen and (max-width: v.$md-breakpoint) {
+            flex-basis: 100%;
+        }
+    }
+}
+
+figure {
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+
+    figcaption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgb(234, 67, 53);
+        color: white;
+        border: 0.1rem black solid;
+        padding: 0.5rem 1rem;
+        text-align: center;
+
+        //imbrication d'un selecteur au survol de la legende
+        &:hover {
+            background-color: v.$color-primary;
+        }
+    }
+}
+
+
+//Appel de la mixin button
+.btn{
+    @include m.button(white,v.$color-primary);
+}
+
+.btn_succes{
+    @include m.button(white,green );
+}
